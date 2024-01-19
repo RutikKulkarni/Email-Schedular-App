@@ -1,7 +1,5 @@
 # Scheduler App
 
-## Description
-
 This project is a Scheduler App developed in React.js using TypeScript. Users can perform CRUD operations on email schedules, including creating, updating, and deleting schedules. The app features a clean design implemented based on the Figma design provided.
 
 ## Live Demo
