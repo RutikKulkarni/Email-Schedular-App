@@ -23,30 +23,6 @@ This project is a Scheduler App developed in React.js using TypeScript. Users ca
   - `DELETE /schedules/:id` - Delete specific schedule.
   - `POST /schedules` - Create a new schedule.
 
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/schedular-app.git
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   cd schedular-app
-   npm install
-   ```
-
-## Usage
-
-1. Run the app:
-
-   ```bash
-   npm start
-   ```
-
-2. Open your browser and navigate to `http://localhost:3000`.
 
 ## Design
 
