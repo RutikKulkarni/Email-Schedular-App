@@ -5,9 +5,15 @@ import styles from "./ScheduleList.module.css";
 // import circularIcon from "../assets/circularIcon.svg";
 
 const circularIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="12" fill="white"/>
-    <circle cx="12" cy="12" r="11.5" stroke="#3C1E5A" stroke-opacity="0.1"/>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <circle cx="12" cy="12" r="12" fill="white" />
+    <circle cx="12" cy="12" r="11.5" stroke="#3C1E5A" stroke-opacity="0.1" />
   </svg>
 );
 
@@ -196,7 +202,9 @@ const EditScheduleBox: React.FC<EditScheduleBoxProps> = ({
             marginRight: "7px",
           }}
         >
-          <option value="" disabled>Select Frequency</option>
+          <option value="" disabled>
+            Select Frequency
+          </option>
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
           <option value="monthly">Monthly</option>
@@ -320,7 +328,9 @@ const EditScheduleBox: React.FC<EditScheduleBoxProps> = ({
             marginRight: "7px",
           }}
         >
-          <option value="" disabled>Select Time</option>
+          <option value="" disabled>
+            Select Time
+          </option>
           <option value="10:00 AM">10:00 AM</option>
           <option value="11:30 AM">11:30 AM</option>
           <option value="01:00 PM">01:00 PM</option>
@@ -435,14 +445,14 @@ const ScheduleList: React.FC<ScheduleListProps> = ({
                 className={`${styles.tableCell} ${styles.scheduleCell}`}
               >{`${schedule.frequency} at ${schedule.time}`}</td> */}
               <td className={`${styles.tableCell} ${styles.scheduleCell}`}>
-  {schedule.frequency === "daily"
-    ? `Daily at ${schedule.time}`
-    : schedule.frequency === "weekly"
-    ? `Weekly on ${schedule.day} at ${schedule.time}`
-    : schedule.frequency === "monthly"
-    ? `Monthly on ${schedule.day} at ${schedule.time}`
-    : "Invalid Frequency"}
-</td>
+                {schedule.frequency === "daily"
+                  ? `Daily at ${schedule.time}`
+                  : schedule.frequency === "weekly"
+                  ? `Weekly on ${schedule.day} at ${schedule.time}`
+                  : schedule.frequency === "monthly"
+                  ? `Monthly on ${schedule.day} at ${schedule.time}`
+                  : "Invalid Frequency"}
+              </td>
 
               <td className={`${styles.tableCell} ${styles.actionsCell}`}>
                 <button

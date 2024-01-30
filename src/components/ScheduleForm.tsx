@@ -17,7 +17,7 @@ const ScheduleForm: React.FC = () => {
   const [newScheduleSubject, setNewScheduleSubject] = useState("");
   const [newScheduleFrequency, setNewScheduleFrequency] = useState("");
   const [newScheduleTime, setNewScheduleTime] = useState("");
-  const [selectedDay, setSelectedDay] = useState(""); // To store the selected day for weekly and monthly frequencies
+  const [selectedDay, setSelectedDay] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +46,7 @@ const ScheduleForm: React.FC = () => {
 
   const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setNewScheduleFrequency(e.target.value);
-    setSelectedDay(""); // Reset selectedDay when frequency changes
+    setSelectedDay("");
   };
 
   const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -62,27 +62,22 @@ const ScheduleForm: React.FC = () => {
   };
 
   const handleCancel = () => {
-    // Reset form and close the box
     resetForm();
     setIsAddBoxOpen(false);
   };
 
   const handleDone = () => {
-    // Add the entered data to the schedule list
     const newSchedule: Schedule = {
       title: newScheduleTitle,
       description: newScheduleDescription,
       subject: newScheduleSubject,
       frequency: newScheduleFrequency,
       time: newScheduleTime,
-      day: selectedDay, // Include selected day for weekly and monthly frequencies
-      // Add any other properties you want to include
+      day: selectedDay,
     };
 
-    // Update the schedules state with the new schedule
     setSchedules([...schedules, newSchedule]);
 
-    // Reset form and close the box
     resetForm();
     setIsAddBoxOpen(false);
   };
@@ -258,66 +253,78 @@ const ScheduleForm: React.FC = () => {
                 marginRight: "7px",
               }}
             >
-              <option value="" disabled>Select Frequency</option>
+              <option value="" disabled>
+                Select Frequency
+              </option>
               <option value="daily">Daily</option>
               <option value="weekly">Weekly</option>
               <option value="monthly">Monthly</option>
             </select>
 
             {newScheduleFrequency === "weekly" && (
-  <div>
-    <label className={styles.content} style={{ fontSize: "14px", marginLeft: "7px" }}>
-      Repeat
-    </label>
-    <select
-      value={selectedDay}
-      onChange={handleDayChange}
-      className={styles.content}
-      style={{
-        width: "200px",
-        height: "32px",
-        borderRadius: "4px",
-        border: "1px solid var(--Blue10, rgba(60, 30, 90, 0.10))",
-        background: "#FFF",
-        paddingLeft: "7px",
-      }}
-    >
-      <option value="" disabled>Select Day</option>
-      <option value="monday">Monday</option>
-      <option value="tuesday">Tuesday</option>
-      <option value="wednesday">Wednesday</option>
-      <option value="thursday">Thursday</option>
-      <option value="friday">Friday</option>
-      <option value="saturday">Saturday</option>
-      <option value="sunday">Sunday</option>
-    </select>
-  </div>
-)}
+              <div>
+                <label
+                  className={styles.content}
+                  style={{ fontSize: "14px", marginLeft: "7px" }}
+                >
+                  Repeat
+                </label>
+                <select
+                  value={selectedDay}
+                  onChange={handleDayChange}
+                  className={styles.content}
+                  style={{
+                    width: "200px",
+                    height: "32px",
+                    borderRadius: "4px",
+                    border: "1px solid var(--Blue10, rgba(60, 30, 90, 0.10))",
+                    background: "#FFF",
+                    paddingLeft: "7px",
+                  }}
+                >
+                  <option value="" disabled>
+                    Select Day
+                  </option>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                  <option value="sunday">Sunday</option>
+                </select>
+              </div>
+            )}
 
-{newScheduleFrequency === "monthly" && (
-  <div>
-    <label className={styles.content} style={{ fontSize: "14px", marginLeft: "7px" }}>
-      Repeat
-    </label>
-    <select
-      value={selectedDay}
-      onChange={handleDayChange}
-      className={styles.content}
-      style={{
-        width: "200px",
-        height: "32px",
-        borderRadius: "4px",
-        border: "1px solid var(--Blue10, rgba(60, 30, 90, 0.10))",
-        background: "#FFF",
-        paddingLeft: "7px",
-      }}
-    >
-      <option value="" disabled>Select Day</option>
-      <option value="firstMonday">First Monday</option>
-      <option value="firstFriday">First Friday</option>
-    </select>
-  </div>
-)}
+            {newScheduleFrequency === "monthly" && (
+              <div>
+                <label
+                  className={styles.content}
+                  style={{ fontSize: "14px", marginLeft: "7px" }}
+                >
+                  Repeat
+                </label>
+                <select
+                  value={selectedDay}
+                  onChange={handleDayChange}
+                  className={styles.content}
+                  style={{
+                    width: "200px",
+                    height: "32px",
+                    borderRadius: "4px",
+                    border: "1px solid var(--Blue10, rgba(60, 30, 90, 0.10))",
+                    background: "#FFF",
+                    paddingLeft: "7px",
+                  }}
+                >
+                  <option value="" disabled>
+                    Select Day
+                  </option>
+                  <option value="firstMonday">First Monday</option>
+                  <option value="firstFriday">First Friday</option>
+                </select>
+              </div>
+            )}
           </div>
 
           <div
@@ -350,7 +357,9 @@ const ScheduleForm: React.FC = () => {
                 marginRight: "7px",
               }}
             >
-              <option value="" disabled>Select Time</option>
+              <option value="" disabled>
+                Select Time
+              </option>
               <option value="10:00 AM">10:00 AM</option>
               <option value="11:30 AM">11:30 AM</option>
               <option value="01:00 PM">01:00 PM</option>
